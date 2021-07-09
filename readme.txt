@@ -19,5 +19,3 @@ j'ai pris la décision d'utiliser un render plus simple pour map la table, mais 
 3. L'initialisation et l'update ne marchaient pas dans le constructeur, alors j'ai dû utiliser la fonction React
 componentWillMount, qui est dépréciée (componentDidMount ne marchait pas dans mon cas, probablement dû au fait
 que je dois exécuter mes fonctions avant le render).
-
-4. Lorsqu'on commence un nouveau jeu (avec la touche "n" sur le clavier), les couleurs s'update mals, pas de solution.
