@@ -385,7 +385,7 @@ class Game extends React.Component {
     };
 };
 
-function Row({ row }){
+function Row({row}){
     return (
         <tr>
             {row.map((cell, i) => (<Cell key={i} cellValue={cell} />))}
@@ -393,13 +393,12 @@ function Row({ row }){
     );
 };
 
-function Cell({ cellValue }) {
+function Cell({cellValue}) {
     let color = 'cell';
     let value = (cellValue === 0) ? '' : cellValue;
     if (value) {
         color += ` color-${value}`;
     }
-
     return (
         <td>
             <div className={color}>
