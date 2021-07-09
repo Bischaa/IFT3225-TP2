@@ -337,10 +337,14 @@ class Game extends React.Component {
         this.placeNewTileRandom(this.state.gameboard);
         this.placeNewTileRandom(this.state.gameboard);
     };
+    //Commence une nouvelle partie
+    inputNew() {
+        this.createInitialGameboard(4);
+    }
     //Print le array (troubleshooting)
     inputQ() {
         console.log(this.state.gameboard);
-    }
+    };
 
     //Bouger le board avec les flèches du clavier
     handleKeyDown(e) {
@@ -360,6 +364,9 @@ class Game extends React.Component {
             case 40:
                 this.inputDown();
                 //console.log("Down");
+                break;
+            case 78:
+                this.inputNew();
                 break;
             case 81:
                 this.inputQ();
