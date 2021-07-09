@@ -2,7 +2,7 @@
 
 //IFT3225-TP2
 //Par Maxime Ton
-//Matricule 20143044
+//Matricule: 20143044
 
 //Initialisation
 class Game extends React.Component {
