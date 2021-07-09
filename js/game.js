@@ -374,38 +374,135 @@ class Game extends React.Component {
     };
 
     render(){
+
+        /* Ne marche pas, logique pour une table n x n
+        function convertTable(gameboard) {
+            if(!document.getElementById('tempBody')) {
+                let table = document.createElement('table');
+                table.setAttribute("id", "tempTable");
+                let tableBody = document.createElement('tablebody');
+                table.setAttribute("id", "tempBody");
+
+                gameboard.forEach(function (rowData) {
+                    let row = document.createElement('tr');
+
+                    rowData.forEach(function (cellData) {
+                        let cell = document.createElement('td');
+                        cell.appendChild(document.createTextNode(cellData));
+                        row.appendChild(cell);
+                    });
+                    tableBody.appendChild(row);
+                });
+                table.appendChild(tableBody);
+                document.body.appendChild(table);
+            } else {
+                document.getElementById('tempTable').removeChild(document.getElementById('tempBody'));
+                let table = document.createElement('table');
+                table.setAttribute("id", "tempTable");
+                let tableBody = document.createElement('tablebody');
+                table.setAttribute("id", "tempBody");
+
+                gameboard.forEach(function (rowData) {
+                    let row = document.createElement('tr');
+
+                    rowData.forEach(function (cellData) {
+                        let cell = document.createElement('td');
+                        cell.appendChild(document.createTextNode(cellData));
+                        row.appendChild(cell);
+                    });
+                    tableBody.appendChild(row);
+                });
+                table.appendChild(tableBody);
+                document.body.appendChild(table);
+            }
+        }
+         */
+        //Solution temporaire pour une table 4x4 (À REVOIR)
         return(
             <div>
                 <div className="movements">Mouvements: {this.state.mouvements}</div>
-                <table>
-                    {this.state.gameboard.map((row, i) => (<Row key={i} row={row} />))}
+
+                <table id="gametable">
+                    <tbody>
+                        {this.state.gameboard.map((value, i) => {
+                          return(
+                            <tr key={i}>
+                                <td>{value[0]}</td>
+                                <td>{value[1]}</td>
+                                <td>{value[2]}</td>
+                                <td>{value[3]}</td>
+                            </tr>
+                          );
+                        })
+                        }
+                        {colorCells()}
+                    </tbody>
                 </table>
             </div>
         );
     };
 };
 
-function Row({row}){
-    return (
-        <tr>
-            {row.map((cell, i) => (<Cell key={i} cellValue={cell} />))}
-        </tr>
-    );
-};
+//Fonction qui modifie le CSS pour colorer les différentes valeurs
+function colorCells() {
+    if(document.getElementById("gametable")) {
+        const table = document.getElementById("gametable");
+        const tbody = table.getElementsByTagName('tbody')[0];
+        let cells = tbody.getElementsByTagName('td');
 
-function Cell({cellValue}) {
-    let color = 'cell';
-    let value = (cellValue === 0) ? '' : cellValue;
-    if (value) {
-        color += ` color-${value}`;
+        for (let i = 0; i < cells.length; i++) {
+            switch (parseInt(cells[i].innerHTML)) {
+                case 0:
+                    cells[i].style.backgroundColor = "lightgrey";
+                    cells[i].style.color = "lightgrey";
+                    break;
+                case 2:
+                    cells[i].style.backgroundColor = "yellow";
+                    cells[i].style.color = "black";
+                    break;
+                case 4:
+                    cells[i].style.backgroundColor = "gold";
+                    cells[i].style.color = "black";
+                    break;
+                case 8:
+                    cells[i].style.backgroundColor = "orange";
+                    cells[i].style.color = "black";
+                    break;
+                case 16:
+                    cells[i].style.backgroundColor = "darkorange";
+                    cells[i].style.color = "black";
+                    break;
+                case 32:
+                    cells[i].style.backgroundColor = "coral";
+                    cells[i].style.color = "black";
+                    break;
+                case 64:
+                    cells[i].style.backgroundColor = "tomato";
+                    cells[i].style.color = "black";
+                    break;
+                case 128:
+                    cells[i].style.backgroundColor = "orangered";
+                    cells[i].style.color = "black";
+                    break;
+                case 256:
+                    cells[i].style.backgroundColor = "red";
+                    cells[i].style.color = "black";
+                    break;
+                case 512:
+                    cells[i].style.backgroundColor = "firebrick";
+                    cells[i].style.color = "black";
+                    break;
+                case 1024:
+                    cells[i].style.backgroundColor = "darkred";
+                    cells[i].style.color = "black";
+                    break;
+                case 2058:
+                    cells[i].style.backgroundColor = "purple";
+                    cells[i].style.color = "black";
+                    break;
+            }
+        }
     }
-    return (
-        <td>
-            <div className={color}>
-                <div className="number">{value}</div>
-            </div>
-        </td>
-    );
 };
 
 ReactDOM.render(<Game />, document.getElementById('main-div'))

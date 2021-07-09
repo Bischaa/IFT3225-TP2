@@ -1,54 +1,20 @@
-table {
+body{
+    font-family: "Arial Black";
+    font-size: 20px;
+}
+
+table, th, td {
     margin: auto;
+    border: 1px solid black;
+    border-spacing: 5px;
+    border-collapse: separate;
 }
 
-.cell {
-    height: 100px;
+td {
+    background-color: lightgrey;
     width: 100px;
-    background-color: darkgrey;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.color-2 {
-    background-color: yellow;
-}
-.color-4 {
-    background-color: orange;
-}
-.color-8 {
-    background-color: darkorange;
-}
-.color-16 {
-    background-color: coral;
-}
-.color-32 {
-    background-color: orangered;
-}
-.color-64 {
-    background-color: red;
-}
-.color-128 {
-    background-color: darkred;
-}
-.color-256 {
-    background-color: brown;
-}
-.color-512 {
-    background-color: firebrick;
-}
-.color-1024 {
-    background-color: saddlebrown;
-}
-.color-2048 {
-    background-color: purple;
-}
-
-.number {
-    color: black;
-    font-size: 35px;
+    height: 100px;
+    text-align: center;
 }
 
 .movements {
