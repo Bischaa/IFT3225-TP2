@@ -5,7 +5,7 @@ Matricule: 20143044
 URL:
 https://www-ens.iro.umontreal.ca/~tonmaxim/index.xhtml (Forbidden à distance, mais les fichiers sont sur le diro).
 
-https://bischaa.github.io./IFT3225-TP2/ (Lien fonctionnel)
+https://bischaa.github.io/IFT3225-TP2/ (Lien fonctionnel)
 https://github.com/Bischaa/IFT3225-TP2 (Répertoire contenant les fichiers)
 
 Notes: 

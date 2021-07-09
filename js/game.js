@@ -340,6 +340,7 @@ class Game extends React.Component {
     //Commence une nouvelle partie
     inputNew() {
         this.createInitialGameboard(4);
+        colorCells();
     }
     //Print le array (troubleshooting)
     inputQ() {
