@@ -315,14 +315,12 @@ class Game extends React.Component {
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
         this.placeNewTileRandom(this.state.gameboard);
-        this.placeNewTileRandom(this.state.gameboard);
     };
     //Update le gameboard avec un mouvement à droite
     inputRight() {
         let tempGameboard = this.moveRight(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
         this.placeNewTileRandom(this.state.gameboard);
     };
     //Update le gameboard avec un mouvement vers le haut
@@ -331,14 +329,12 @@ class Game extends React.Component {
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
         this.placeNewTileRandom(this.state.gameboard);
-        this.placeNewTileRandom(this.state.gameboard);
     };
     //Update le gameboard avec un mouvement le bas
     inputDown() {
         let tempGameboard = this.moveDown(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
         this.placeNewTileRandom(this.state.gameboard);
     };
     //Commence une nouvelle partie
