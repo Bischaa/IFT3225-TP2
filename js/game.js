@@ -420,7 +420,7 @@ class Game extends React.Component {
         //Solution temporaire pour une table 4x4 (À REVOIR)
         return(
             <div>
-                <div className="movements">Mouvements: {this.state.mouvements}</div>
+                <div className="movements">Moves: {this.state.mouvements}</div>
 
                 <table id="gametable">
                     <tbody>
