@@ -21,4 +21,4 @@ componentWillMount, qui est dépréciée (componentDidMount ne marchait pas dans
 que je dois exécuter mes fonctions avant le render).
 
 4. Dans les fonctions input<Direction>(), j'ai ajouté un timeout de 300ms avant chaque placeNewTileRandom(), car j'avais
-quelque problèmes avec le merge qui se passait après le merge. Ce changement semble avoir résolu ce problème.
+quelque problèmes avec le merge qui se passait après le merge. Ce changement semble avoir résolu ce problème en partie.
