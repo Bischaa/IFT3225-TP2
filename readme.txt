@@ -19,3 +19,6 @@ j'ai pris la décision d'utiliser un render plus simple pour map la table, mais 
 3. L'initialisation et l'update ne marchaient pas dans le constructeur, alors j'ai dû utiliser la fonction React
 componentWillMount, qui est dépréciée (componentDidMount ne marchait pas dans mon cas, probablement dû au fait
 que je dois exécuter mes fonctions avant le render).
+
+4. Dans les fonctions input<Direction>(), j'ai ajouté un timeout de 300ms avant chaque placeNewTileRandom(), car j'avais
+quelque problèmes avec le merge qui se passait après le merge. Ce changement semble avoir résolu ce problème.

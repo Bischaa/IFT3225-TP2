@@ -314,28 +314,28 @@ class Game extends React.Component {
         let tempGameboard = this.moveLeft(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
+        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
     };
     //Update le gameboard avec un mouvement à droite
     inputRight() {
         let tempGameboard = this.moveRight(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
+        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
     };
     //Update le gameboard avec un mouvement vers le haut
     inputUp() {
         let tempGameboard = this.moveUp(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
+        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
     };
     //Update le gameboard avec un mouvement le bas
     inputDown() {
         let tempGameboard = this.moveDown(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("Mouvements: "+this.state.mouvements);
-        this.placeNewTileRandom(this.state.gameboard);
+        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
     };
     //Commence une nouvelle partie
     inputNew() {
