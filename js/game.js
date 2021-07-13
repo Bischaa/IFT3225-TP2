@@ -1,6 +1,6 @@
 'use strict';
 
-//IFT3225-TP2
+//IFT3225 TP2
 //Par Maxime Ton
 //Matricule: 20143044
 
