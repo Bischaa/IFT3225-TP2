@@ -78,6 +78,8 @@ class Game extends React.Component {
         gameboard[randomEmptyTile[0]][randomEmptyTile[1]]=this.getNewTileRandom();
 
         this.setState({gameboard: gameboard});
+
+        return(gameboard);
     }
 
     //Vérifier si l'on a 2048
@@ -312,30 +314,38 @@ class Game extends React.Component {
     //Update le gameboard avec un mouvement à gauche
     inputLeft() {
         let tempGameboard = this.moveLeft(this.state.gameboard);
+        //console.log("pre timeout");
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
-        //console.log("Mouvements: "+this.state.mouvements);
-        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
+        tempGameboard = this.placeNewTileRandom(this.state.gameboard);
+        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement à droite
     inputRight() {
         let tempGameboard = this.moveRight(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
-        //console.log("Mouvements: "+this.state.mouvements);
-        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
+        //console.log("pre timeout");
+        tempGameboard = this.placeNewTileRandom(this.state.gameboard);
+        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement vers le haut
     inputUp() {
         let tempGameboard = this.moveUp(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
-        //console.log("Mouvements: "+this.state.mouvements);
-        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
+        //console.log("pre timeout");
+        tempGameboard = this.placeNewTileRandom(this.state.gameboard).bind(this);
+        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement le bas
     inputDown() {
         let tempGameboard = this.moveDown(this.state.gameboard);
         this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
-        //console.log("Mouvements: "+this.state.mouvements);
-        setTimeout(this.placeNewTileRandom(this.state.gameboard), 300);
+        //console.log("pre timeout");
+        tempGameboard = this.placeNewTileRandom(this.state.gameboard).bind(this);
+        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        //console.log("passed timeout");
     };
     //Commence une nouvelle partie
     inputNew() {
@@ -378,6 +388,10 @@ class Game extends React.Component {
     //L'initialisation ne marche pas dans le constructeur, solution temporaire (méthode dépréciée) (À REVOIR)
     componentWillMount() {
         this.createInitialGameboard(4);
+        //document.addEventListener('keydown', this.handleKeyDown.bind(this));
+    };
+
+    componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
     };
 
@@ -426,6 +440,7 @@ class Game extends React.Component {
         }
          */
         //Solution temporaire pour une table 4x4 (À REVOIR)
+
         return(
             <div>
                 <div className="movements">Moves: {this.state.mouvements}</div>
