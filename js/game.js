@@ -391,11 +391,13 @@ class Game extends React.Component {
     //L'initialisation ne marche pas dans le constructeur, solution temporaire (méthode dépréciée) (À REVOIR)
     componentWillMount() {
         this.createInitialGameboard(4);
+        colorCells();
         //document.addEventListener('keydown', this.handleKeyDown.bind(this));
     };
 
     componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
+        colorCells();
     };
 
     render(){
