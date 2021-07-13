@@ -12,6 +12,7 @@ class Game extends React.Component {
         this.state = {
             gameboard: null,
             mouvements: 0,
+            score: 0,
             success: false,
             stuck: false
         }
@@ -84,6 +85,19 @@ class Game extends React.Component {
 
         return(gameboard);
     }
+
+    //Calculer le score
+    calculateScore(gameboard) {
+        let count = 0;
+        for(let i=0; i < gameboard.length; i++) {
+            for(let j=0; j < gameboard[i].length; j++) {
+                if(gameboard[i][j] != 0) {
+                    count += gameboard[i][j];
+                }
+            }
+        }
+        return count;
+    };
 
     //Vérifier si l'on a 2048
     checkSuccess(gameboard){
@@ -318,36 +332,36 @@ class Game extends React.Component {
     inputLeft() {
         let tempGameboard = this.moveLeft(this.state.gameboard);
         //console.log("pre timeout");
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         tempGameboard = this.placeNewTileRandom(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement à droite
     inputRight() {
         let tempGameboard = this.moveRight(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("pre timeout");
         tempGameboard = this.placeNewTileRandom(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement vers le haut
     inputUp() {
         let tempGameboard = this.moveUp(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("pre timeout");
         tempGameboard = this.placeNewTileRandom(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("passed timeout");
     };
     //Update le gameboard avec un mouvement le bas
     inputDown() {
         let tempGameboard = this.moveDown(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements++, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("pre timeout");
         tempGameboard = this.placeNewTileRandom(this.state.gameboard);
-        this.setState({gameboard: tempGameboard, movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
+        this.setState({gameboard: tempGameboard, score: this.calculateScore(tempGameboard), movements: this.state.mouvements, success: this.checkSuccess(tempGameboard), stuck: this.checkStuck(tempGameboard)});
         //console.log("passed timeout");
     };
     //Commence une nouvelle partie
@@ -448,6 +462,7 @@ class Game extends React.Component {
 
         return(
             <div>
+                <div className="score">Score: {this.state.score}</div>
                 <div className="movements">Moves: {this.state.mouvements}</div>
 
                 <table id="gametable">

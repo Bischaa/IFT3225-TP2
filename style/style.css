@@ -39,7 +39,15 @@ td {
     border-radius: 7px;
 }
 
+.score {
+    font-family: "JetBrains Mono ExtraBold";
+    font-size: 30px;
+    text-align: center;
+}
+
 .movements {
+    font-family: "JetBrains Mono ExtraBold";
+    font-size: 20px;
     text-align: center;
     margin-bottom: 20px;
 }
