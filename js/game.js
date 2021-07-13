@@ -40,7 +40,7 @@ class Game extends React.Component {
         gameboard[randomPos1[0]][randomPos1[1]]=this.getNewTileRandom();
         gameboard[randomPos2[0]][randomPos2[1]]=this.getNewTileRandom();
 
-        this.setState({gameboard: gameboard, mouvements:0, success: false, stuck: false});
+        this.setState({gameboard: gameboard, score: 0, mouvements:0, success: false, stuck: false});
     };
 
     //Créer un gameboard vide
