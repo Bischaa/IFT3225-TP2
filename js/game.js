@@ -524,8 +524,20 @@ function colorCells() {
                     cells[i].style.backgroundColor = "darkred";
                     cells[i].style.color = "black";
                     break;
-                case 2058:
+                case 2048:
                     cells[i].style.backgroundColor = "purple";
+                    cells[i].style.color = "black";
+                    break;
+                case 4096:
+                    cells[i].style.backgroundColor = "deepskyblue";
+                    cells[i].style.color = "black";
+                    break;
+                case 8192:
+                    cells[i].style.backgroundColor = "royalblue";
+                    cells[i].style.color = "black";
+                    break;
+                case 18384:
+                    cells[i].style.backgroundColor = "blue";
                     cells[i].style.color = "black";
                     break;
             }
